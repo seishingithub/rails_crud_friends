@@ -31,6 +31,21 @@ feature 'Manage Friends' do
     expect(page).to have_content 'Bryant'
     expect(page).to have_no_content 'Fred'
     expect(page).to have_no_content 'Williams'
+  end
 
+  scenario 'User can delete friends' do
+    visit '/'
+    click_on 'Add friend'
+    fill_in 'First name', with: 'Fred'
+    fill_in 'Last name', with: 'Williams'
+    click_on 'Create friend'
+    expect(page).to have_content 'Fred'
+    expect(page).to have_content 'Williams'
+    click_on 'Fred'
+    expect(page).to have_content 'Fred'
+    expect(page).to have_content 'Williams'
+    click_on 'Delete friend'
+    expect(page).to have_no_content 'Fred'
+    expect(page).to have_no_content 'Williams'
   end
 end
