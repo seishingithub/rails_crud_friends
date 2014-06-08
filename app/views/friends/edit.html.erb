@@ -8,14 +8,6 @@
     <%= f.text_field :last_name %>
   </p>
   <p>
-    <%= f.submit 'Create friend' %>
+    <%= f.submit 'Update friend' %>
   </p>
-<% end %>
-
-<% @friends.each do |friend| %>
-<ul>
-  <li>
-    <%= link_to "#{friend.first_name}", friend_path(friend) %>, <%= friend.last_name %>
-  </li>
-</ul>
 <% end %>
